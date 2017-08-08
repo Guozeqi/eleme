@@ -122,7 +122,7 @@
         background: #f3f5f7
       .food-item
         display: flex
-        margin: 18px
+        margin: 12px
         padding-bottom: 18px
         border-1px(rgba(7, 17, 27, 0.1))
         &:last-child
