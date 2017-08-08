@@ -15,7 +15,7 @@
         <li v-for="item in goods" class="food-list">
           <h1 class="title">{{item.name}}</h1>
           <ul>
-            <li v-for="food in item.foods" class="food-item">
+            <li v-for="food in item.foods" class="food-item border-1px">
               <div class="icon">
                 <img :src="food.icon">
               </div>
@@ -23,15 +23,14 @@
                 <h2 class="name">{{food.name}}</h2>
                 <p class="desc">{{food.description}}</p>
                 <div class="extra">
-                  <span>月售{{food.sellCount}}份</span>
-                  <span class="">好评率{{food.rating}}%</span>
+                  <span class="count">月售{{food.sellCount}}份</span>
+                  <span>好评率{{food.rating}}%</span>
                 </div>
                 <div class="price">
-                  <span>￥{{food.price}}</span>
-                  <span v-show="food.oldPrice">￥{{food.oldPrice}}</span>
+                  <span class="now">￥{{food.price}}</span>
+                  <span v-show="food.oldPrice" class="old">￥{{food.oldPrice}}</span>
                 </div>
               </div>
-
             </li>
           </ul>
         </li>
@@ -113,5 +112,53 @@
           font-size: 12px
     .foods-wrapper
       flex: 1
-
+      .title
+        padding-left: 14px
+        height: 26px
+        line-height: 26px
+        font-size: 12px
+        color: rgb(147, 153, 159)
+        border-left: 2px solid #d9dde1
+        background: #f3f5f7
+      .food-item
+        display: flex
+        margin: 18px
+        padding-bottom: 18px
+        border-1px(rgba(7, 17, 27, 0.1))
+        &:last-child
+          border-none()
+          margin-bottom: 0
+        .icon
+          flex: 0 0 57px
+          margin-right: 10px
+          width: 57px
+        .content
+          flex: 1
+          margin-left: 57px
+          .name
+            margin: 2px 0 8px 0
+            height: 14px
+            line-height: 14px
+            font-size: 14px
+            color: rgb(7, 17, 27)
+          .desc, .extra
+            line-height: 10px
+            font-size: 10px
+            color: rgb(147, 153, 159)
+          .desc
+            margin-bottom: 8px
+          .extra
+            &.count
+              margin-right: 12px
+          .price
+            line-height: 24px
+            font-weight: 700
+            .now
+              margin-right: 8px
+              font-size: 14px
+              color: rgb(240, 20, 20)
+            .old
+              font-size: 10px
+              color: rgb(147, 153, 159)
+              text-decoration: line-through
 </style>
