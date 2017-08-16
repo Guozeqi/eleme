@@ -55,8 +55,8 @@
     data () {
       return {
         goods: [],
-        listHeight: [], // 每个高度的数组
-        scrollY: 0
+        listHeight: [], // 菜单上每个模块的高度的数组
+        scrollY: 0 // food滚动位置
       };
     },
     computed: {
@@ -114,7 +114,7 @@
       _calculateHeight() {
         let foodList = this.$refs.foodList;
         let height = 0;
-        this.listHeight.push(height);
+        this.listHeight.push(height);// 默认开始的位置是0
         for (let i = 0; i < foodList.length; i++) {
           let item = foodList[i];
           height += item.clientHeight;
