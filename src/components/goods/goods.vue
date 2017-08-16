@@ -37,12 +37,14 @@
         </li>
       </ul>
     </div>
+    <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
+    <!--传参数给shopcart组件-->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll';
-  // import food from '../../food/food';
+  import shopcart from '../shopcart/shopcart';
   const ERR_OK = 0;
   // import axios from 'axios';
 
@@ -126,6 +128,9 @@
         let el = menuList[index];
         this.meunScroll.scrollToElement(el, 300, 0, -100);
       }
+    },
+    components: {
+      shopcart: shopcart
     }
   };
 </script>
